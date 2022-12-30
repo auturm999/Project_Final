@@ -22,7 +22,7 @@ public class LoginPage {
       //  WebUI.setText(driver,inputPassword,password);
          WebUI.clickElement(buttonLogin);
          WebUI.sleep(2000);
-         return new DashboardPage(driver);
+         return new DashboardPage();
     }
 
 }
