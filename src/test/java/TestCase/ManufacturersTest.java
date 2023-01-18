@@ -21,7 +21,7 @@ public class ManufacturersTest extends BaseTest {
     @Test
      public void testAddProject() throws InterruptedException {
 
-        dashboardPage=loginpage.login("admin@yourstore.com","admin");
+        dashboardPage=loginpage.loginSucces("admin@yourstore.com","admin");
         manufacturerPage=dashboardPage.OpenProject();
         manufacturerPage.addManufacturer();
     }

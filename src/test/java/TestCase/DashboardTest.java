@@ -16,10 +16,15 @@ public class DashboardTest  extends BaseTest {
     {
         loginpage=new LoginPage(driver);
     }
-    @Test
-    public void testLoginValid() throws InterruptedException {
+    @Test (priority=11)
+    public void LoginValid() {
 
-        dashboardPage=loginpage.login("admin@yourstore.com","admin");
+        dashboardPage=loginpage.loginSucces("admin@yourstore.com","admin");
         manufacturerPage=dashboardPage.OpenProject();
     }
+    @Test(priority=2)
+    public void LogOut() {   dashboardPage=loginpage.loginSucces("admin@yourstore.com","admin");
+        dashboardPage.LogOut();
+    }
+
 }

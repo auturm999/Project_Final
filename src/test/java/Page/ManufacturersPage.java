@@ -17,7 +17,6 @@ public class ManufacturersPage   {
         WebUI.clickElement(addNew);
         WebUI.sleep(5000);
         WebUI.setText(name,"Test");
-
     }
 
 }

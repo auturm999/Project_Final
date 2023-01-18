@@ -15,11 +15,23 @@ public class LoginTest extends BaseTest {
     {
         loginpage=new LoginPage(driver);
     }
-    @Test
-    public void testLoginValid() throws InterruptedException {
+    @Test(priority=1)
+    public void LoginSucces() throws InterruptedException {
 
-        dashboardPage=loginpage.login("admin@yourstore.com","admin");
+        dashboardPage=loginpage.loginSucces("admin@yourstore.com","admin");
         dashboardPage.OpenProject();
+    }
+    @Test(priority=2)
+    public void LoginUsernameInValid() throws InterruptedException {
+
+        loginpage.loginWithUserName_Invalid("admin@yourstore.com11","admin");
+
+    }
+    @Test(priority=3)
+    public void LoginPasswordInValid() throws InterruptedException {
+
+        loginpage.loginWithPassword_Invalid("admin@yourstore.com","admin11");
+
     }
 
 }
