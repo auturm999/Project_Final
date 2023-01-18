@@ -1,25 +1,33 @@
 package TestCase;
 
+import Page.CommonPage;
 import Page.DashboardPage;
 import Page.LoginPage;
 import Page.ManufacturersPage;
 import common.BaseTest;
+import datatest.ConstantData;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class DashboardTest  extends BaseTest {
-    LoginPage loginpage ;
+    LoginPage loginPage ;
     DashboardPage dashboardPage;
-    ManufacturersPage manufacturerPage;
+    public CommonPage commonPage;
     @BeforeMethod
-    public void setUpTest()
-    {
-        loginpage=new LoginPage(driver);
-    }
-    @Test
-    public void testLoginValid() throws InterruptedException {
 
-        dashboardPage=loginpage.login("admin@yourstore.com","admin");
-        manufacturerPage=dashboardPage.OpenProject();
+    public void setupTest(){
+        loginPage=new LoginPage(driver);
+       //dashboardPage = new DashboardPage(driver);
     }
+    @Test (priority=11)
+    public void LoginValid() {
+
+        dashboardPage=loginPage.logIn(ConstantData.EMAIL,ConstantData.PASSWORD);
+        dashboardPage.Openfacturers();
+    }
+    @Test(priority=2)
+    public void LogOut() {   dashboardPage=loginPage.logIn(ConstantData.EMAIL,ConstantData.PASSWORD);
+        dashboardPage.LogOut();
+    }
+
 }
