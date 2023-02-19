@@ -2,30 +2,23 @@ package Page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import utils.WebUI;
 
 import java.lang.management.ManagementFactory;
-import java.time.Duration;
 
-public class DashboardPage  extends CommonPage{
-    WebDriver driver;
-
-   public DashboardPage(WebDriver driver)
+public class DashboardPage {
+  private static WebDriver driver;
+   public DashboardPage()
    {
-       super(driver);
-       this.driver=driver;
-       new WebUI (driver);
 
    }
+   By menuProject=By.xpath("//div[@class='os-padding']//nav//ul//li//p[normalize-space()='Catalog']");
+    By menuManufacturers=By.xpath("//p[normalize-space()='Manufacturers']");
 
-   By  linkLogOut=By.xpath("//a[text()='Logout']");
-
-   public void LogOut()
+   public ManufacturersPage OpenProject()
    {
-       WebUI.clickElement(linkLogOut);
+       WebUI.clickElement(menuProject);
+       WebUI.clickElement(menuManufacturers);
+       return new ManufacturersPage();
    }
-
-
 }
