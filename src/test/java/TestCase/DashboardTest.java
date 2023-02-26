@@ -27,7 +27,7 @@ public class DashboardTest  extends BaseTest {
     }
     @Test(priority=2)
     public void LogOut() {   dashboardPage=loginPage.logIn(ConstantData.EMAIL,ConstantData.PASSWORD);
-        dashboardPage.LogOut();
+        dashboardPage.dangXuat();
     }
 
 }

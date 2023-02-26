@@ -10,13 +10,12 @@ import utils.WebUI;
 import java.time.Duration;
 
 public class ManufacturersPage  extends CommonPage {
-    private static WebDriver driver;
+    private  WebDriver driver;
     private WebDriverWait wait;
     public ManufacturersPage(WebDriver driver)
     {
         super(driver);
         this.driver=driver;
-        new WebUI (driver);
         wait=new WebDriverWait(driver, Duration.ofSeconds(10));
     }
     By textManufacturers=By.xpath("//h1[normalize-space()='Manufacturers']");
